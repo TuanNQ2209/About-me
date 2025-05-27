@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu về bản thân</title>
+    <link rel="stylesheet" href="css/bootstrap-5.3.6-dist/css/bootstrap.min.css" />
+</head>
+
+<body class="bg-light text-dark">
+
+    <div class="container py-5">
+        <div class="d-flex flex-column justify-content-center align-items-center" style="height: 10px;">
+            <p class="mb-2">🌓 Chuyển Chế Độ Sáng/Tối</p>
+
+            <!-- Switch bằng Bootstrap -->
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                <label id="modeText" class="form-check-label" for="darkModeSwitch">🌙 Bật chế độ tối</label>
+            </div>
+        </div>
+
+        <div id="infoCard" class="card shadow p-4 text-center mt-4 bg-white text-dark">
+            <img src="images/Me.jpg" class="img-fluid rounded-circle mx-auto d-block mb-3"
+                style="width: 300px; height: 380px;" alt="Ảnh đại diện" />
+            <h1 class="text-primary">Xin chào, tôi là <span class="fw-bold">Nguyễn Quốc Tuấn</span></h1>
+            <p class="lead">
+                Tôi là người yêu thích công nghệ và lập trình.<br>
+                Hiện tôi đang học phát triển web và thích tạo ra các trang web hiện đại, dễ sử dụng.
+            </p>
+            <div class="mt-3">
+                <p><strong>📧 Email:</strong> tuannq2209@gmail.com</p>
+                <p><strong>☎️ SĐT:</strong> 0369259736</p>
+                <p><strong>☎️ SĐT:</strong> 0945629145</p>
+                <a href="#" class="btn btn-primary mt-2">Xem thêm về tôi</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script chuyển đổi sáng/tối -->
+    <script>
+        const darkModeSwitch = document.getElementById('darkModeSwitch');
+        const body = document.body;
+        const infoCard = document.getElementById('infoCard');
+
+        darkModeSwitch.addEventListener('change', () => {
+            const isDark = darkModeSwitch.checked;
+
+            if (darkModeSwitch.checked) {
+                modeText.textContent = "🌞 Tắt chế độ tối";
+            } else {
+                modeText.textContent = "🌙 Bật chế độ tối";
+            }
+
+            body.classList.toggle('bg-light', !isDark);
+            body.classList.toggle('text-dark', !isDark);
+            body.classList.toggle('bg-dark', isDark);
+            body.classList.toggle('text-light', isDark);
+
+            infoCard.classList.toggle('bg-white', !isDark);
+            infoCard.classList.toggle('bg-secondary', isDark);
+            infoCard.classList.toggle('text-dark', !isDark);
+            infoCard.classList.toggle('text-light', isDark);
+        });
+    </script>
+
+    <script src="css/bootstrap-5.3.6-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
